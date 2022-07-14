@@ -33,6 +33,11 @@ import substratum.theme.template.ThemeFunctions.isCallingPackageAllowed
  */
 
 class SubstratumLauncher : Activity() {
+override fun onCreate() {
+        // Apply dynamic color
+        DynamicColors.applyToActivitiesIfAvailable(this)
+    }
+
 
     private val debug = false
     private val tag = "SubstratumThemeReport"
@@ -182,7 +187,8 @@ class SubstratumLauncher : Activity() {
             finish()
         }
     }
-
+    
+    
     private fun showDialog() {
         val dialog = AlertDialog.Builder(this, R.style.DialogStyle)
                 .setCancelable(false)
